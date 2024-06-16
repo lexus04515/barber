@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jun 2024 pada 11.34
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.3.14
+-- Waktu pembuatan: 16 Jun 2024 pada 11.15
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,7 +42,7 @@ CREATE TABLE `admin_barber` (
 
 INSERT INTO `admin_barber` (`barber_id_user`, `barber_username`, `barber_password`, `barber_nama`, `barber_no_handphone`, `barber_email`) VALUES
 (1, 'admin', '123', 'admin', '08123456789', 'admin@gmail.com'),
-(8, 'admin2', '123', 'admin2', '08888888888', 'admin2@gmail.com');
+(9, 'admin9', '123', 'rian', '132454657', 'admin9@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -64,10 +63,8 @@ CREATE TABLE `bayar_barber` (
 --
 
 INSERT INTO `bayar_barber` (`barber_id_bayar`, `barber_id_booking`, `barber_bukti`, `barber_tanggal_upload`, `barber_konfirmasi`) VALUES
-(55, 123, '64522a4de1d9a.png', '2023-05-03', 'Terkonfirmasi'),
-(56, 127, '652df538ee439.png', '2023-10-17', 'Terkonfirmasi'),
-(57, 128, '652df606de5e8.png', '2023-10-17', 'Terkonfirmasi'),
-(58, 129, '66602d738d977.jpeg', '2024-06-05', 'Terkonfirmasi');
+(64, 153, '666dabd4e3dd6.png', '2024-06-15', 'Terkonfirmasi'),
+(65, 154, '666dae340abc1.png', '2024-06-15', 'Sudah Bayar');
 
 -- --------------------------------------------------------
 
@@ -92,13 +89,8 @@ CREATE TABLE `booking_barber` (
 --
 
 INSERT INTO `booking_barber` (`barber_id_booking`, `barber_id_user`, `barber_id_layanan`, `barber_tanggal_pesan`, `barber_lama_booking`, `barber_jam_mulai`, `barber_jam_habis`, `barber_harga`, `barber_total`) VALUES
-(123, 98, 23, '2023-05-03', 2, '2023-05-03 16:23:00', '2023-05-03 18:23:00', 30000, 60000),
-(124, 0, 0, '2023-10-17', 0, '0000-00-00 00:00:00', '1970-01-01 01:00:00', 0, 0),
-(125, 0, 0, '2023-10-17', 0, '0000-00-00 00:00:00', '1970-01-01 01:00:00', 0, 0),
-(126, 98, 0, '2023-10-17', 0, '0000-00-00 00:00:00', '1970-01-01 01:00:00', 30000, 30000),
-(127, 98, 24, '2023-10-17', 2, '2023-10-17 09:43:00', '2023-10-17 11:43:00', 20000, 40000),
-(128, 98, 25, '2023-10-17', 2, '2023-10-17 09:48:00', '2023-10-17 11:48:00', 30000, 60000),
-(129, 100, 24, '2024-06-05', 19, '2024-06-28 16:17:00', '2024-06-29 11:17:00', 20000, 380000);
+(153, 102, 31, '2024-06-15', 2, '2024-06-15 21:48:00', '2024-06-15 23:48:00', 50000, 100000),
+(154, 103, 35, '2024-06-15', 1, '2024-06-15 22:07:00', '2024-06-15 23:07:00', 35000, 35000);
 
 -- --------------------------------------------------------
 
@@ -119,13 +111,9 @@ CREATE TABLE `layanan_barber` (
 --
 
 INSERT INTO `layanan_barber` (`barber_id_layanan`, `barber_nama`, `barber_keterangan`, `barber_harga`, `barber_foto`) VALUES
-(23, 'Bronze2', 'ini lapangan Dewa', 10000, 'footbal.jpg'),
-(24, 'Silver', 'Ini Lapangan Emas', 20000, 'badmintoon.jpg'),
-(25, 'Gold', 'Ini Lapangan Silver', 30000, 'basket.jpg'),
-(26, 'Diamond', 'Ini Lapangan Golf4', 40000, 'futsal.jpg'),
-(27, '', '', 0, '652df02080f44.png'),
-(29, 'test', '', 123, '652df064de52f.png'),
-(30, 'haircut', '', 40, '66602e5e310ce.jpeg');
+(31, 'Hair Coloring', '', 50000, '666078a1a996a.jpg'),
+(32, 'Beard Grooming', '', 25000, '666078d11dcfc.jpg'),
+(35, 'Hair Cut', '', 35000, '6660791829166.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,8 +137,8 @@ CREATE TABLE `user_barber` (
 --
 
 INSERT INTO `user_barber` (`barber_id_user`, `barber_email`, `barber_password`, `barber_no_handphone`, `barber_jenis_kelamin`, `barber_nama_lengkap`, `barber_alamat`, `barber_foto`) VALUES
-(98, 'geraldshrn@gmail.com', 'm212279', '082197252774', 'Laki-laki', 'Gerald Sharon Ratu', 'Bekasi', '645229918b946.jpg'),
-(100, 'zuma@gmail.com', '123', '123', 'Laki-Laki', 'zuma', 'sleman', '66602cada78ff.jpeg');
+(103, 'wyldan@gmail.com', '789', '0857654321', 'Laki-Laki', 'Wyldan Saharaputra', 'Kulon Progo', '666da951738c6.jpg'),
+(102, 'zuma@gmail.com', '123', '08134567890', 'Laki-Laki', 'Muhammad Haizuma', 'Batang', '666da926d8f6b.jpg');
 
 --
 -- Indexes for dumped tables
@@ -194,31 +182,31 @@ ALTER TABLE `user_barber`
 -- AUTO_INCREMENT untuk tabel `admin_barber`
 --
 ALTER TABLE `admin_barber`
-  MODIFY `barber_id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `barber_id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `bayar_barber`
 --
 ALTER TABLE `bayar_barber`
-  MODIFY `barber_id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `barber_id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT untuk tabel `booking_barber`
 --
 ALTER TABLE `booking_barber`
-  MODIFY `barber_id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `barber_id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT untuk tabel `layanan_barber`
 --
 ALTER TABLE `layanan_barber`
-  MODIFY `barber_id_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `barber_id_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_barber`
 --
 ALTER TABLE `user_barber`
-  MODIFY `barber_id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `barber_id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
